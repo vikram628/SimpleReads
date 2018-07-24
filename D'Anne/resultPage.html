@@ -1,0 +1,104 @@
+<!-- main idea of this page is to set out the text to be printed
+and the defintions on the side of the page. As the mouse is hovered over the text
+the defintion will be highlighted and scrolled to that spot. the defined word will be numbered -->
+
+<!-- <!DOCTYPE html>
+<htm
+<head>
+<meta charset="UTF-8">
+<title>Lucid Text</title>
+<link rel="stylesheet" href="resultPage.css">
+</head>
+<body>
+<div class ="header">
+<h1>Lucid Text</h1>
+</div>
+<div class="slidebar">
+<input type="range" min="1" max="3" value="3" class="slider" id="myRange">
+</div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<link href="https://fonts.googleapis.com/css?family=ABeeZee|Alegreya|Chela+One|Do+Hyeon|Farsan|Gaegu|Great+Vibes|Indie+Flower|Kaushan+Script|Lobster|Merienda|Monoton|Montserrat|Philosopher|Satisfy|Vampiro+One" rel="stylesheet">
+<head>
+  <title>LucidText </title>
+  <link rel="stylesheet" href="resultPage.css">
+</head>
+<body>
+  <div id= "title_description">
+    <div id="title">
+      <h1>    Lucid Text </h1>
+    </div>
+    <div id= "description">
+      <p> <center>diffitculty</center></p>
+      <div <center> class="slidebar" </center>>
+        <input type="range" min="1" max="50" value="50" class="slider" id="myRange">
+      </div>
+    </div>
+  </div>
+  <div>
+    <div style="
+    display: flex;
+    padding: 24px;">
+    <div id="text_define">
+      <p> Writing an academic essay means fashioning a coherent set of ideas into an argument. Because essays are essentially linear—they offer one idea at a time—they must present their ideas in the order that makes most sense to a reader. Successfully structuring an essay means attending to a reader's logic.
+
+The focus of such an essay predicts its structure. It dictates the information readers need to know and the order in which they need to receive it. Thus your essay's structure is necessarily unique to the main claim you're making. Although there are guidelines for constructing certain classic essay types (e.g., comparative analysis), there are no set formula.
+
+Answering Questions:  The Parts of an Essay
+
+A typical essay contains many different kinds of information, often located in specialized parts or sections. Even short essays perform several different operations: introducing the argument, analyzing data, raising counterarguments, concluding. Introductions and conclusions have fixed places, but other parts don't. Counterargument, for example, may appear within a paragraph, as a free-standing section, as part of the beginning, or before the ending. Background material (historical context or biographical information, a summary of relevant theory or criticism, the definition of a key term) often appears at the beginning of the essay, between the introduction and the first analytical section, but might also appear near the beginning of the specific section to which it's relevant.
+
+It's helpful to think of the different essay sections as answering a series of questions your reader might ask when encountering your thesis. (Readers should have questions. If they don't, your thesis is most likely simply an observation of fact, not an arguable claim.)
+
+"What?"  The first question to anticipate from a reader is "what": What evidence shows that the phenomenon described by your thesis is true? To answer the question you must examine your evidence, thus demonstrating the truth of your claim. This "what" or "demonstration" section comes early in the essay, often directly after the introduction. Since you're essentially reporting what you've observed, this is the part you might have most to say about when you first start writing. But be forewarned: it shouldn't take up much more than a third (often much less) of your finished essay. If it does, the essay will lack balance and may read as mere summary or description.
+
+"How?"  A reader will also want to know whether the claims of the thesis are true in all cases. The corresponding question is "how": How does the thesis stand up to the challenge of a counterargument? How does the introduction of new material—a new way of looking at the evidence, another set of sources—affect the claims you're making? Typically, an essay will include at least one "how" section. (Call it "complication" since you're responding to a reader's complicating questions.) This section usually comes after the "what," but keep in mind that an essay may complicate its argument several times depending on its length, and that counterargument alone may appear just about anywhere in an essay.
+
+"Why?"  Your reader will also want to know what's at stake in your claim: Why does your interpretation of a phenomenon matter to anyone beside you? This question addresses the larger implications of your thesis. It allows your readers to understand your essay within a larger context. In answering "why", your essay explains its own significance. Although you might gesture at this question in your introduction, the fullest answer to it properly belongs at your essay's end. If you leave it out, your readers will experience your essay as unfinished—or, worse, as pointless or insular.
+
+Mapping an Essay
+
+Structuring your essay according to a reader's logic means examining your thesis and anticipating what a reader needs to know, and in what sequence, in order to grasp and be convinced by your argument as it unfolds. The easiest way to do this is to map the essay's ideas via a written narrative. Such an account will give you a preliminary record of your ideas, and will allow you to remind yourself at every turn of the reader's needs in understanding your idea.
+
+Essay maps ask you to predict where your reader will expect background information, counterargument, close analysis of a primary source, or a turn to secondary source material. Essay maps are not concerned with paragraphs so much as with sections of an essay. They anticipate the major argumentative moves you expect your essay to make. Try making your map like this:
+
+State your thesis in a sentence or two, then write another sentence saying why it's important to make that claim. Indicate, in other words, what a reader might learn by exploring the claim with you. Here you're anticipating your answer to the "why" question that you'll event
+</p>
+</div>
+
+<div id="define">
+  <p id="demo"></p>
+
+  <script>
+  var cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+  var text = "";
+  var i;
+
+  for (i = 0; i < cars.length; i++) {
+  text += "<div class = \"tabs\" >"  + (1+i ) + ". " + cars[i] + "</div> ";
+  }
+  document.getElementById("demo").innerHTML = text;
+</script>
+<button onclick="printDefintion()">Print defintion</button>
+
+<script>
+function printDefintion() {
+  var printContent = document.getElementById("define").innerHTML;
+  var originalContent = document.body.innerHTML;
+
+     document.body.innerHTML = printContent;
+
+     window.print();
+
+     document.body.innerHTML = originalContent;
+}
+</script>
+  </div>
+</div>
+</div>
+</div>
+</body>
+
+</html>
