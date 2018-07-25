@@ -16,7 +16,7 @@ import webapp2
 import jinja2
 import os
 import re
-from wordList.py import *
+# from wordList.py import *
 # from models import Meme
 
 jinja_current_directory = jinja2.Environment(
@@ -24,7 +24,7 @@ jinja_current_directory = jinja2.Environment(
     extensions = ['jinja2.ext.autoescape'],
     autoescape = True)
 #Creates the dictonaries that hold every word in the page.
-def findHardWord(unfilteredText):
+def getWordList(unfilteredText):
     wordList = unfilteredText.split()
     # researchDict = []
     # for x in range (0, len(wordList)):
@@ -32,6 +32,13 @@ def findHardWord(unfilteredText):
     #     #reverseDict = {wordList[x] : x}
     #     #print researchDict
     return wordList
+def getHardWords(unfilteredText):
+    wordList = unfilteredText.split()
+    hardWordList = []
+    for x in range (0,len(wordList)):
+        if(len(wordList[x]) > 8):
+            hardWordList.append(wordList[x])
+    return hardWordList
 class WelcomePage(webapp2.RequestHandler):
     def get(self):
         welcome_template = \
@@ -40,12 +47,15 @@ class WelcomePage(webapp2.RequestHandler):
     def post(self):
         researchText = self.request.get('researchPaste')
         #researchDic = {"everything" : researchText}
-        populationDict = {"wordList" :findHardWord(researchText)}
+        populationDict = {"wordList" :getWordList(researchText)}
         print(populationDict)
+        hardPopulationDict = {"hardWordList" : getHardWords(researchText) }
+        print(hardPopulationDict)
         #populationDict = findHardWord(researchText)
-        welcome_template = jinja_current_directory.get_template('templates/demo2.html')
+        welcome_template = jinja_current_directory.get_template('templates/resultPage.html')
         #self.response.write(welcome_template.render(researchDic))
         self.response.write(welcome_template.render(populationDict))
+        self.response.write(welcome_template.render(hardPopulationDict))
 
 
 
