@@ -3,11 +3,11 @@ api_version: 1
 threadsafe: true
 
 handlers:
-# - url: /styles
-#   static_dir: styles
-#
 - url: /styles2
   static_dir: styles2
+
+- url: /scripts2
+  static_dir: scripts2
 
 - url: /.*
   script: main.app
