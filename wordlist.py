@@ -2952,5 +2952,3 @@ youth
 you've"""
 
 commonwordslist = commonwords.split()
-
-print commonwordslist
