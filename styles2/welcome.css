@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  background-image: url('../images/mainpic.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background-image 1s;
+  padding-bottom: 100px;
+}
+
+#title_description {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+#description {
+  padding-top: 100px;
+  padding-right: 111px;
+  padding-left: 62px;
+  font-style: normal;
+}
+
+label {
+  align-self: center;
+  font-family:'Dancing Script', cursive;
+  font-size: 20px;
+}
+
+#title {
+    display: flex;
+    position: relative;
+    left: 0px;
+    flex-wrap: wrap;
+    font-family:'Dancing Script', cursive;
+    color: rgba(8,19,17,.55);
+    font-size: 40px;
+    margin-left: 85px
+  }
+
+  /* #description {
+    display: flex
+    position: relative;
+    left: 0px;
+    width:60%;
+    flex-wrap: wrap;
+    color: rgba(8,19,17,.55);
+  } */
+
+#text_define {
+  display: flex;
+  position: relative;
+  border-width: 95%;
+  border-radius: 10px;
+  flex-direction: column;
+  align-items: center;
+}
+
+#text_entry {
+  height: 550px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  /* height: 600px; */
+  /* padding-left: 10%;
+  padding-right: 10%; */
+}
+
+input[type=text], select, textarea{
+  border: 1px solid rgba(8,19,17,.55);
+  border-radius: 4px;
+  box-sizing: border-box;
+  max-width: 100%;
+  flex-grow: 1;
+  overflow-y: scroll;
+  background-color:rgba(255,255,255,.35);
+  color: black;
+  font-size: 18px;
+  font-style: normal;
+}
+
+input[type=submit] {
+  background-color: rgba(8,19,17,.55);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 200px;
+  font-family:'Dancing Script', cursive;
+  font-size: 30px;
+  color: rgba(8,19,17,.55);
+}
