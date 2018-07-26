@@ -1,0 +1,117 @@
+<!-- main idea of this page is to set out the text to be printed
+and the defintions on the side of the page. As the mouse is hovered over the text
+the defintion will be highlighted and scrolled to that spot. the defined word will be numbered -->
+
+<!-- <!DOCTYPE html>
+<htm
+<head>
+<meta charset="UTF-8">
+<title>Lucid Text</title>
+<link rel="stylesheet" href="resultPage.css">
+</head>
+<body>
+<div class ="header">
+<h1>Lucid Text</h1>
+</div>
+<div class="slidebar">
+<input type="range" min="1" max="3" value="3" class="slider" id="myRange">
+</div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Chela+One|Dancing+Script|Do+Hyeon|Eczar|Fjalla+One|Gaegu|Gloria+Hallelujah|Indie+Flower|Lobster|Merienda|Open+Sans+Condensed:300|Raleway|Roboto+Slab|Ubuntu" rel="stylesheet">
+<head>
+  <title>LucidText </title>
+  <link rel="stylesheet" href="styles2/resultPage.css">
+</head>
+<body>
+  <div id= "title_description">
+    <div id="title">
+      <h1>    Lucid Text </h1>
+    </div>
+    <div id= "description">
+      <p> Level of difficulty</p>
+      <div <center>  </center>
+        <body  id="sliderbar">
+          <form>
+            <input type="range" name="amountRange" min="0" max="20" value="0" class="slider" oninput="this.form.amountInput.value=this.value" id="myRange"/>
+            <input type="number" name="amountInput" min="0" max="20" value="0" class="input" oninput="this.form.amountRange.value=this.value" />
+          </form>
+        </body>
+
+      </div>
+    </div>
+  </div>
+  <div>
+    <div style="display: flex; padding: 24px;">
+      <div id="text_define">
+        <div id="block">
+
+          <p id='blockText'> Research Paper
+          </p>
+        </div>
+        <p id="indent">
+          {% for item in wordList %}
+          <span>
+            {{item}}
+          </span>
+          {% endfor %}
+        </p>
+        </div>
+      <div id="divHiddenBox" style="display: none;">
+        {% for item in hardWordList %}
+        <span class="wordsHard" id="hiddenWord">
+          {{item}}
+        </span>
+        {% endfor %}
+      </div>
+      <div id="define">
+        <div id= "defineblock">
+          <p id= "lucid">Your lucid defintions
+          </p>
+        </div>
+        <p id="demo"></p>
+
+
+        <!-- <script>
+        console.log("hey")
+        var hardDiv = document.querySelector('#divHiddenBox')
+        var hardWords = document.getElementsByClassName('words')
+        console.log(hardWords)
+        var cars = ["BMW"];
+        cars.forEach(function(hardWords) {
+        cars.push(hardWords)
+        console.log(hardWords)
+      })
+
+
+      var text = "";
+      var i;
+
+      for (i = 0; i < cars.length; i++) {
+      text += "<div class = \"tabs\" >"  + (1+i ) + ". " + cars[i] + "</div> ";
+    }
+    document.getElementById("demo").innerHTML = text;
+  </script> -->
+  <button onclick="printDefintion()">Print defintion</button>
+  <!-- <script>
+  function printDefintion() {
+  var printContent = document.getElementById("define").innerHTML;
+  var originalContent = document.body.innerHTML;
+
+  document.body.innerHTML = printContent;
+
+  window.print();
+
+  document.body.innerHTML = originalContent;
+}
+</script> -->
+<script src="/../scripts2/resultPage.js" type="text/javascript"></script>
+</div>
+</div>
+</div>
+</div>
+</body>
+
+</html>
