@@ -67,7 +67,6 @@ class WelcomePage(webapp2.RequestHandler):
         welcome_template = jinja_current_directory.get_template('templates/welcome.html')
         self.response.write(welcome_template.render())
         print ("about to print definition")
-        print get_definition()
     def post(self):
         researchText = self.request.get('researchPaste')
         #researchDic = {"everything" : researchText}
