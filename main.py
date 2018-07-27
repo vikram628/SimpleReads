@@ -12,8 +12,8 @@ jinja_current_directory = jinja2.Environment(
     extensions = ['jinja2.ext.autoescape'],
     autoescape = True)
 def get_rootword(str1):
-    app_id = '2d63d4c2'
-    app_key = '7cc6f918e6a883687fb992d834cf018e'
+    app_id = '449bac85'
+    app_key = '1d92cc5cfbd382763c4699436a5b44e9'
 
     language = 'en'
     word_id = str1
@@ -29,6 +29,15 @@ def get_rootword(str1):
         print "ERROR fetching URL:", r.status_code
 
     return rootword['results'][0]['lexicalEntries'][0]['inflectionOf'][0]['id']
+def get_difficulty(str1):
+    word_id= str1
+    url= 'http://phrasefinder.io/search?corpus=eng-us&query='+ word_id+'%3F&topk=1'
+    r= urlfetch.fetch(url)
+    difficulty= ast.literal_eval(r.content)
+    try:
+        return difficulty['phrases'][0]['mc']
+    except:
+        print 0
 def get_definition(str1):
     app_id = '2d63d4c2'
     app_key = '7cc6f918e6a883687fb992d834cf018e'
@@ -55,12 +64,19 @@ def getHardWords(unfilteredText):
     wordList = unfilteredText.split()
     hardWordList = []
     for x in range (0,len(wordList)):
-        if(len(wordList[x]) > 8):
+        # wordList[x] = wordList[x].replace(".","")
+        # wordList[x] = wordList[x].replace(",","")
+        # wordList[x] = wordList[x].replace("(","")
+        # wordList[x] = wordList[x].replace(")","")
+        # wordList[x] = wordList[x].replace(":","")
+        wordList[x] = re.sub(r"\W","", wordList[x])
+        if(get_difficulty(str(wordList[x])) < 100000):
             try:
-                wordList[x] = wordList[x] + "\n Definition: " + get_definition(wordList[x])
-                hardWordList.append(wordList[x])
+                content = wordList[x] + "<br> Definition: " + get_definition(wordList[x])
+                hardWordList.append({'content': content, 'word':wordList[x]})
             except:
-                print{"No def"}
+                print "No def"
+                print wordList[x]
     return hardWordList
 class WelcomePage(webapp2.RequestHandler):
     def get(self):
@@ -79,9 +95,10 @@ class WelcomePage(webapp2.RequestHandler):
         #self.response.write(welcome_template.render(researchDic))
         self.response.write(welcome_template.render(populationDict))
         wlist = ['helpful']
-        print('#param1',get_rootword('changes'))
+        print('#param1',get_difficulty('about'))
         # wlist[0] = wlist[0] + "/n Definiton: " + get_definition(wlist[0])
         # print wlist[0]
+
 
 app = webapp2.WSGIApplication([
     ('/', WelcomePage),

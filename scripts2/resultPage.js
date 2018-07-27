@@ -8,14 +8,31 @@ function printDefintion() {
 
      document.body.innerHTML = originalContent;
 }
-
+function hilightWord(word) {
+  console.log(word);
+  var list = document.querySelectorAll(".tabs")
+  for (var i = 0; i < list.length; i++) {
+    if (list[i].dataset.word == word) {
+      list[i].classList.add("hilightWord")
+    }
+  }
+}
+function dehilightWord(word) {
+  console.log(word);
+  var list = document.querySelectorAll(".tabs")
+  for (var i = 0; i < list.length; i++) {
+    if (list[i].dataset.word == word) {
+      list[i].classList.remove("hilightWord")
+    }
+  }
+}
 console.log("hey")
 var hardDiv = document.querySelector('#divHiddenBox')
 var hardWords = document.getElementsByClassName('wordsHard')
 //var hardWords = document.querySelectorAll('.wordsHard')
-var cars = ['Mary Grace'];
+var cars = [];
 for(var i = 0; i < hardWords.length; i++) {
-  cars.push(hardWords[i].innerText)
+  cars.push({'content': hardWords[i].innerText, 'word' : hardWords[i].dataset.word})
 }
 // hardWords.forEach(function(hardWordItem) {
 //   cars.push(hardWordItem)
@@ -26,7 +43,7 @@ var text = "";
 var i;
 
 for (i = 0; i < cars.length; i++) {
-text += "<div class = \"tabs\" >"  + (1+i ) + ". " + cars[i] + "</div> ";
+text += "<div data-word = \"" + cars[i].word + "\" class = \"tabs\" >"  + (1+i ) + ". " + cars[i].content + "</div> ";
 }
 document.getElementById("demo").innerHTML = text;
 

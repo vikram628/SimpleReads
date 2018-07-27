@@ -6,7 +6,7 @@ function updateBackgroundImage(imageIndex){
     var nextIndex= imageIndex+1
     nextIndex=nextIndex%images.length
     updateBackgroundImage(nextIndex)
-  }, 3000)
+  }, 5000)
 }
 
 function setBodyImage(image){

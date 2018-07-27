@@ -30,7 +30,7 @@ the defintion will be highlighted and scrolled to that spot. the defined word wi
     <div id="title">
       <h1>    Lucid Text </h1>
     </div>
-    <div id= "description">
+    <!-- <div id= "description">
       <p> Level of difficulty</p>
       <div <center>  </center>
         <body  id="sliderbar">
@@ -41,7 +41,7 @@ the defintion will be highlighted and scrolled to that spot. the defined word wi
         </body>
 
       </div>
-    </div>
+    </div> -->
   </div>
   <div>
     <div style="display: flex; padding: 24px;">
@@ -53,7 +53,7 @@ the defintion will be highlighted and scrolled to that spot. the defined word wi
         </div>
         <p id="indent">
           {% for item in wordList %}
-          <span>
+          <span onmouseover="hilightWord('{{item}}')" onmouseout="dehilightWord('{{item}}')">
             {{item}}
           </span>
           {% endfor %}
@@ -61,8 +61,8 @@ the defintion will be highlighted and scrolled to that spot. the defined word wi
         </div>
       <div id="divHiddenBox" style="display: none;">
         {% for item in hardWordList %}
-        <span class="wordsHard" id="hiddenWord">
-          {{item}}
+        <span class="wordsHard" id="hiddenWord" data-word = '{{item.word}}'>
+          {{item.content}}
         </span>
         {% endfor %}
       </div>

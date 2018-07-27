@@ -13,16 +13,18 @@ body {
   flex-direction: row;
 }
 #description {
-  padding-top: 100px;
+  padding-top: 64px;
   padding-right: 111px;
   padding-left: 62px;
-  font-style: normal;
+  font-size: 25px;
+  font-family:'Dancing Script', cursive;
+  padding-bottom: 20px;
 }
 
 label {
   align-self: center;
   font-family:'Dancing Script', cursive;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 #title {
@@ -33,7 +35,8 @@ label {
     font-family:'Dancing Script', cursive;
     color: rgba(8,19,17,.55);
     font-size: 40px;
-    margin-left: 85px
+    margin-left: 85px;
+    flex-shrink: 0;
   }
 
   /* #description {
@@ -78,8 +81,8 @@ input[type=text], select, textarea{
 }
 
 input[type=submit] {
-  background-color: rgba(8,19,17,.55);
-  color: white;
+  background-color: rgba(255,255,255,.35);
+  color: black;
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
@@ -87,5 +90,4 @@ input[type=submit] {
   width: 200px;
   font-family:'Dancing Script', cursive;
   font-size: 30px;
-  color: rgba(8,19,17,.55);
 }
